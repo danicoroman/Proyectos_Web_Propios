@@ -4,6 +4,7 @@
     --primario: #FFC107;
     --secundario: #0097A7;
     --gris: #757575;
+    --grisClaro: #DFE9F3;
 }
 
 
@@ -24,6 +25,8 @@ body {
     font-size: 16px;
     /* (62.5% de 16px) 1rem = 10px */
     font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+    /*abajo a arriba: to top*/
 }
 
 .contenedor {
@@ -48,6 +51,12 @@ body {
 @media (min-width: 768px) {
     .boton {
         width: auto;
+    }
+    .sombra {
+        box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+        background-color: var(--blanco);
+        padding: 2rem;
+        border-radius: 1rem;
     }
 }
 
@@ -128,6 +137,7 @@ h3 {
     background-size: cover;
     height: 410px;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .contenido-hero {
