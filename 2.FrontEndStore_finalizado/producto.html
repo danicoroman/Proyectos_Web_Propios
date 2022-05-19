@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontEnd Store</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html">
+            <img class="header__logo" src="img/logo.png" alt="Logo FrontEnd Store">
+        </a>
+    </header>
+
+    <nav class="navegacion">
+        <a href="index.html" class="navegacion__enlace">Tienda</a>
+        <a href="nosotros.html" class="navegacion__enlace">Nosotros</a>
+    </nav>
+
+    <main class="contenedor">
+        <h1>React JS</h1>
+
+        <div class="camisa">
+            <img src="img/3.jpg" alt="Imagen del Producto" class="camisa__imagen">
+
+            <div class="camisa__contenido">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde quos laborum ex, temporibus minus perferendis facilis illo reprehenderit eveniet. Placeat aspernatur non quod fugiat consequuntur sunt consequatur neque corrupti excepturi.</p>
+
+                <form class="formulario">
+                    <select class="formulario__campo">
+                        <option disabled selected>--Seleccionar talla--</option>
+                        <option>Pequeña</option>
+                        <option>Mediana</option>
+                        <option>Grande</option>
+                    </select>
+                    <input type="number" class="formulario__campo" placeholder="Cantidad" min="1">
+                    <input type="submit" class="formulario__submit" value="Agregar al Carrito">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__texto"> ©FrontEnd Store - Todos los derechos Reservados 2022</p>
+    </footer>
+
+</body>
+
+</html>
