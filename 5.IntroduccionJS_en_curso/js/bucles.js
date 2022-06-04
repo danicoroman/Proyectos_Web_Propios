@@ -31,6 +31,16 @@ for (let i = 0; i < carrito.length; i++) {
 
 //While Loop
 
+// let i = 0; //Indice
+
+// while (i < carrito.length) { //Condición
+
+//     console.log(carrito[i].nombre);
+
+//     i++; //Incremento
+
+// }
+
 
 
 
@@ -38,3 +48,10 @@ for (let i = 0; i < carrito.length; i++) {
 
 
 //Do While Loop
+
+let i = 0;
+
+do {
+    console.log(i);
+    i++;
+} while (i < 10)
