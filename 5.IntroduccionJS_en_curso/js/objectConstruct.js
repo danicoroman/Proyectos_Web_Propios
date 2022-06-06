@@ -20,9 +20,6 @@ Producto.prototype.formatearProducto = function() {
 }
 
 
-function formatearProducto(producto) {
-    return `El Producto ${producto.nombre} tiene un precio de: ${producto.precio} €`
-}
 
 const producto2 = new Producto('Monitor Curvo de 49"', 500);
 const producto3 = new Producto('Portatil', 300);
