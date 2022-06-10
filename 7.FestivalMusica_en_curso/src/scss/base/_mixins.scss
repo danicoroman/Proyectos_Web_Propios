@@ -10,3 +10,34 @@
 //         border-radius: 1rem;
 //     }
 // }
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+//Snippet para Media Query
+// "media query": {
+//     "prefix":"mq",
+//     "body": [
+//         "@include m.$1 {\n\t$2\n}"
+//     ]
+// }
