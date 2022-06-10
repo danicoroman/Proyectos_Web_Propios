@@ -1,0 +1,12 @@
+@use 'variables' as v;
+// @mixin heading($color:blue, $border-radius:false) {
+//     //A no ser que se defina un color que esté en las variables, el color por defecto será el azul
+//     text-transform: uppercase;
+//     font-size: 2.4rem;
+//     color: $color;
+//     letter-spacing: 1px;
+//     background-color: black;
+//     @if $border-radius {
+//         border-radius: 1rem;
+//     }
+// }
