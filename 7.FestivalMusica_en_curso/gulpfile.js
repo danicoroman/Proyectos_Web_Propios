@@ -20,9 +20,17 @@ function css(done) {
     done(); //Callback que avisa a gulp cuando lleguemos al final
 }
 
+function javascript(done) {
+    src('src/js/**/*.js')
+        .pipe(dest('build/js'));
+
+    done();
+}
+
 function dev(done) {
 
     watch('src/scss/**/*.scss', css);
+    watch('src/js/**/*.js', javascript);
 
     done();
 }
@@ -62,7 +70,8 @@ function versionAvif(done) {
 }
 
 exports.css = css;
+exports.js = javascript;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.dev = parallel(imagenes, versionWebp, versionAvif, dev);
+exports.dev = parallel(imagenes, versionWebp, versionAvif, javascript, dev);
