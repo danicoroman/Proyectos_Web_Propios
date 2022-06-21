@@ -1,31 +1,22 @@
 <?php
 
-function obtenerServicios(): array
-{
-
+function obtenerServicios() {
     try {
-        require 'includes/database.php';
+        //Importar una conexión
+        require 'database.php';
 
-        $consulta = "SELECT * FROM servicios";
-        $consulta = mysqli_query($db, $consulta);
+        //Escribir el código SQL
+        $sql = 'SELECT * FROM servicios';
+        $consulta = mysqli_query($db,$sql);
+        
 
-
-        // echo "<pre>";
-        // var_dump(mysqli_fetch_assoc($consulta)); // fetch_all nos retorna todo // fetch_array fetch_assoc
-        // echo "</pre>";
-        $i = 0;
-        $servicios = [];
-        while ($row = mysqli_fetch_assoc($consulta)) {
-            $servicios[$i]['id'] = $row['id'];
-            $servicios[$i]['nombre'] = $row['nombre'];
-            $servicios[$i]['precio'] = $row['precio'];
-            $i++;
-        }
-
-        return $servicios;
+        //Obtener los resultados
+        echo '<pre>';
+        var_dump(mysqli_fetch_assoc($consulta));
+        echo '</pre>';
     } catch (\Throwable $th) {
-        //throw $th;
-
-        var_dump($th);
+        var_dump($th) ;
     }
 }
+
+obtenerServicios();
