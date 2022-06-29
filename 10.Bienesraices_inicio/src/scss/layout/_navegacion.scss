@@ -8,7 +8,11 @@
     .dark-mode-button {
         width: 3rem;
         margin-top: 3rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
+        filter: invert(1);
+        &:hover {
+            cursor: pointer;
+        }
         @include tablet {
             margin-top: 0;
         }
@@ -23,13 +27,15 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-end;
     }
 }
 
 .navegacion {
     visibility: hidden;
     opacity: 0;
-    transition: visibility .3s ease-in-out, opacity .5s linear;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity .5s linear, height 0.5s linear;
     @include tablet {
         display: flex;
         align-items: center;
@@ -63,10 +69,12 @@
     }
     img {
         width: 5rem;
+        cursor: pointer;
     }
 }
 
 .mostrar {
     visibility: visible;
     opacity: 1;
+    height: auto;
 }
