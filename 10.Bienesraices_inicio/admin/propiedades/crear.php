@@ -3,9 +3,22 @@
 require '../../includes/config/database.php';
 $db = conectarDB();
 
+//Consultar pra obtener los vendedores
+
+$consulta = "SELECT * FROM vendedores";
+$resultado = mysqli_query($db,$consulta);
+
 //Array con mensajes de errores
 
 $errores=[];
+
+        $titulo = '';
+        $precio = '';
+        $descripcion = '';
+        $habitaciones = '';
+        $wc ='' ;
+        $estacionamiento = '';
+        $vendedorId = '';
 
 //Ejecutar el código después de que el usuario mande el formulario
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -87,28 +100,28 @@ incluirTemplate('header');
             <fieldset>
                 <legend>Información General</legend>
                 <label for="titulo">Título:</label>
-                <input type="text" name="titulo" id="titulo" placeholder="Título Propiedad">
+                <input type="text" name="titulo" id="titulo" placeholder="Título Propiedad" value="<?php echo $titulo; ?>">
 
                 <label for="precio">Precio:</label>
-                <input type="number" name="precio" id="precio" placeholder="Precio Propiedad">
+                <input type="number" name="precio" id="precio" placeholder="Precio Propiedad" value="<?php echo $precio; ?>">
 
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">
 
                 <label for="descripcion">Descripción:</label>
-                <textarea name="descripcion"  id="descripcion"></textarea>
+                <textarea name="descripcion"  id="descripcion"><?php echo $descripcion; ?></textarea>
             </fieldset>
 
             <fieldset>
                 <legend>Información de la Propiedad</legend>
                 <label for="habitaciones">Habitaciones:</label>
-                <input type="number" name="habitaciones" id="habitaciones" placeholder="Ej: 3" min="1" max="9">
+                <input type="number" name="habitaciones" id="habitaciones" placeholder="Ej: 3" min="1" max="9" value="<?php echo $habitaciones; ?>">
                 
                 <label for="wc">Baños:</label>
-                <input type="number" name="wc" id="wc" placeholder="Ej: 3" min="1" max="3">
+                <input type="number" name="wc" id="wc" placeholder="Ej: 3" min="1" max="3" value="<?php echo $wc; ?>">
 
                 <label for="estacionamiento">Estacionamiento:</label>
-                <input type="number" name="estacionamiento" id="estacionamiento" placeholder="Ej: 3" min="1" max="9">
+                <input type="number" name="estacionamiento" id="estacionamiento" placeholder="Ej: 3" min="1" max="9" value="<?php echo $estacionamiento; ?>">
 
             </fieldset>
 
@@ -116,8 +129,11 @@ incluirTemplate('header');
                 <legend>Vendedor</legend>
                 <select name="vendedor">
                     <option value="">--Seleccione--</option>
-                    <option value="1">Dani</option>
-                    <option value="2">Karen</option>
+                    <?php while($vendedor = mysqli_fetch_assoc($resultado)): ?>
+                        <option <?php echo $vendedorId === $vendedor['id'] ? 'selected' : ''; ?>  value="<?php echo $vendedor['id']; ?>"><?php echo $vendedor['nombre'] . " " . $vendedor['apellido']; ?></option>
+
+
+                    <?php endwhile; ?>
                 </select>
             </fieldset>
 
