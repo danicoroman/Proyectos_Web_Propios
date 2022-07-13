@@ -34,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $wc = $_POST['wc'];
         $estacionamiento = $_POST['estacionamiento'];
         $vendedorId = $_POST['vendedor'];
+        $creado = date('Y/m/d');
 
         if(!$titulo){
             $errores[] = "Debes añadir un título";
@@ -65,12 +66,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //Revisar que el array de errores esté vacío
         if(empty($errores)){
             //Insertar en la Base de Datos
-            $query = "INSERT INTO propiedades (titulo,precio,descripcion,habitaciones,wc,estacionamiento,vendedorId) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedorId');" ;
+            $query = "INSERT INTO propiedades (titulo,precio,descripcion,habitaciones,wc,estacionamiento, creado, vendedorId) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId');" ;
             // echo $query;
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
-                echo 'Insertado correctamente';
+                //Redireccionar al usuario
+                header('Location:/admin');
             }
         }
         
