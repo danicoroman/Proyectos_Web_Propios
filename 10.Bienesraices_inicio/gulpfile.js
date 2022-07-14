@@ -31,12 +31,12 @@ function css() {
 
 function javascript() {
     return src(paths.js)
-      .pipe(sourcemaps.init())
-      .pipe(concat('bundle.js'))
-      .pipe(terser())
-      .pipe(sourcemaps.write('.'))
-      .pipe(rename({ suffix: '.min' }))
-      .pipe(dest('./build/js'))
+        .pipe(sourcemaps.init())
+        .pipe(concat('bundle.js'))
+        .pipe(terser())
+        .pipe(sourcemaps.write('.'))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(dest('./build/js'))
 }
 
 function imagenes() {
@@ -63,4 +63,4 @@ function watchArchivos() {
 
 exports.css = css;
 exports.watchArchivos = watchArchivos;
-exports.default = parallel(css, javascript, imagenes, versionWebp, watchArchivos); 
+exports.default = parallel(css, javascript, watchArchivos);
